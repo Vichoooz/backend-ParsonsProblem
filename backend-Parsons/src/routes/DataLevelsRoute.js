@@ -3,9 +3,9 @@ const DataLevels = require("../models/DataLevelsScheme");
 const router = express.Router();
 
 router.post ("/Level", async (req, res) => {
-    const { user_id, level, timeTaken, errorsCount, completedAt } = req.body;
+    const { user_id,name, level, timeTaken, errorsCount, completedAt } = req.body;
     console.log(req.body);
-    const newDataLevel = new DataLevels({ user_id, level, timeTaken, errorsCount, completedAt });
+    const newDataLevel = new DataLevels({ user_id,name, level, timeTaken, errorsCount, completedAt });
     await newDataLevel.save();
     console.log(newDataLevel);
     res.json({ message: "Data level saved" });
